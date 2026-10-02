@@ -195,4 +195,6 @@ left_join(new_gff_protenix_foldseek_df %>% select(Gene, transcript_id, protein_l
 fwrite(all_predictions, file.path(data_dir, "all_predictions.csv"))
          
 ```
+## 10. GeneStructor results for a Sample Gene 
 
+![Gene models for Os06g0113150](https://github.com/user-attachments/assets/df33a3e2-ed68-4c8f-a7d1-14d6aecf3378)
