@@ -1,0 +1,54 @@
+---
+title: "Simplify merged GFF3"
+output:
+  html_document: default
+  pdf_document: default
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Read file merged_gff_for_proteomics.gff3 from ./data/merged_gff_for_proteomics.gff3
+# Simplify the gff3 by keeping entries in the attributes column that contains 'ID=', 'Parent=', 'protein_id=' , 'Name=' and 'transcript_id='
+
+```{bash}
+awk 'BEGIN{FS=OFS="\t"} !/^#/ { 
+    split($9, attrs, ";"); 
+    new_attrs=""; 
+    for(i in attrs) { 
+        if(attrs[i] ~ /^(ID=|Parent=|protein_id=|Name=|transcript_id=)/) { 
+            if(new_attrs != "") new_attrs=new_attrs";"; 
+            new_attrs=new_attrs attrs[i]; 
+        } 
+    } 
+    $9=new_attrs; 
+    print 
+}' ./data/merged_gff_for_proteomics.gff3 > new_gff_simplified.gff3
+
+```
+
+```{r}
+library(ape)
+library(stringr)
+library(data.table)
+library(tidyverse)
+
+# read the simplified gff3 file
+new_gff_data <- read.gff("./data/new_gff_simplified.gff3")
+
+new_gff_data_subset <- new_gff_data[new_gff_data$type == "mRNA",]
+
+# from the attributes column, extract "ID=" and "Parent=" values
+new_gff_data_subset$ID <- str_extract(new_gff_data_subset$attributes, "ID=[^;]+")
+new_gff_data_subset$Parent <- str_extract(new_gff_data_subset$attributes, "Parent=[^;]+")
+new_gff_data_subset$ID <- str_replace_all(new_gff_data_subset$ID , "ID=" , "")
+new_gff_data_subset$Parent <- str_replace_all(new_gff_data_subset$Parent , "Parent=" , "")
+
+# Get only Ids
+new_gff_data_subset_ids <- new_gff_data_subset[,c("ID","Parent")] %>% distinct()
+
+fwrite(new_gff_data_subset_ids, "./data/new_gff_data_subset_ids.tab" , sep = "\t", row.names = FALSE, col.names = TRUE) # Used throughout analysis
+```
