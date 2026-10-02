@@ -23,7 +23,7 @@ new_gff_data_subset_ids <- fread(file.path(data_dir, "new_gff_data_subset_ids.ta
 ```
 
 ## 2. Protein structure results (e.g., Alphafold2 or Protenix.)
-Protein structure results were processed using process_cif_for_pLDDT.R. Read in the processed results in long format
+Protein structure results were processed using [process_cif_for_pLDDT.r](process_cif_for_pLDDT.R). Read in the processed results in long format
 In our analysis, Identical transcripts from different databases for same merged gene locus were grouped under same sequence group.
 Select relevant columns from the protenix results such as sequence groups, identifiers and number of residues with pLDDT above 70 or 80 (pLDDT70 for Protenix and pLDDT80 for Alphafold).
 ```r
