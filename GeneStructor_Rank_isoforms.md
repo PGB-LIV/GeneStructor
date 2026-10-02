@@ -12,7 +12,7 @@ library(cowplot)
 options(width = 150)
 ```
 
-## 1. Create a simplified version of merged GFF with only ids as described in Simplified_GFF.Rmd
+## 1. Create a simplified version of merged GFF with only ids as described in [Simplified_GFF.Rmd](Simplified_GFF.Rmd)
 ```r
 #Set working directory
 data_dir <- "./data"
@@ -34,7 +34,7 @@ protenix_res_selected <- fread(file.path(data_dir, "protenix/source_df_long_prot
 ```
 
 ## 3. Foldseek results
-Foldseek results were processed using process_fs_protenix_all_nip.py. Read in the foldseek results and process them to select relevant columns and compute the maximum bit score.
+Foldseek results were processed using [process_fs_protenix_all_nip.py](process_fs_protenix_all_nip.py). Read in the foldseek results and process them to select relevant columns and compute the maximum bit score.
 
 ```r
 foldseek_res <- fread(file.path(data_dir, "foldseek_results_processed.csv"))
@@ -63,7 +63,7 @@ new_gff_protenix_foldseek_df <- new_gff_data_subset_ids %>%
 ```
 
 ## 5. Add interpro total domain length and psauron scores
-Total interpro domain length was calculated using process_interproscan_results.R from Interproscan results.
+Total interpro domain length was calculated using [process_interproscan_results.R](process_interproscan_results.r) from Interproscan results.
 ```r
 ### Add interpro and Pfam total domain length and keep the maximum value
 total_covered_length_df <- fread(file.path(data_dir, "total_domain_length_df.tsv"))
