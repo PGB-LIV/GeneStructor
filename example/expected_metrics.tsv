@@ -1,0 +1,3 @@
+transcript_id	Gene	structure_id	mean_plddt	total_residues	plddt_70	plddt_80	bits.pdb	bits.sp	bits.max	total_domain_length	in_frame_score
+"Os06t0113150-00"	"Os06g0113150"	"Os06t0113150-00"	81.0607975460123	489	389	321	NA	1786	1786	114	0.99711
+"OsNip_06G000900_01"	"Os06g0113150"	"OsNip_06G000900_01"	82.1338259958071	1908	1585	1374	1743	11230	11230	805	0.99114

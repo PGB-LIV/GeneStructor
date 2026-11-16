@@ -1,0 +1,3 @@
+Gene	ML_rank	transcript_id	transcript_id_collapsed	median_pred_CT	prob_diff_to_rank_1	sd_pred_CT	n_models	plddt_80	bits.max	total_domain_length	in_frame_score
+Os06g0113150	1	OsNip_06G000900_01	OsNip_06G000900_01	0.999446827896333	0	0.000284611566053601	25	1374	11230	805	0.99114
+Os06g0113150	2	Os06t0113150-00	Os06t0113150-00	0.635715623757899	0.36	0.0256727916293312	25	321	1786	114	0.99711

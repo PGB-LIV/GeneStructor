@@ -1,0 +1,5 @@
+psauron -i proteins.fa -o psauron_scores.csv -p
+psauron score: 100.0
+description,psauron_is_protein,in-frame_score
+Os06t0113150-00,True,0.99711
+OsNip_06G000900_01,True,0.99114
