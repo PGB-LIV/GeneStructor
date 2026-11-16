@@ -41,9 +41,9 @@ flowchart LR
     C --> E["Foldseek search<br/>PDB + AlphaFold/Swiss-Prot"]
     B --> F["InterProScan"]
     B --> G["PSAURON"]
-    D & E & F & G --> H["Metrics table<br/>build_metrics_table.R"]
-    H --> I["logistic regression models<br/>median probability"]
-    I --> J["Ranked gene models per locus<br/>rank_isoforms.R"]
+    D & E & F & G --> H["Metrics table<br/>(build_metrics_table.R)"]
+    H --> I["logistic regression models<br/>"]
+    I --> J["Ranked gene models per locus<br/>(rank_isoforms.R)"]
 ```
 
 1. **Collect the gene models.** Gene models from one or more annotations are merged so that every transcript belongs
